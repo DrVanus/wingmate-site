@@ -15,14 +15,14 @@
   <meta property="og:description" content="Four AI dating coaches with real perspectives. Screenshot analysis, platform-aware coaching, and personalized openers.">
   <meta property="og:url" content="https://drvanus.github.io/wingmate-site/">
   <meta property="og:site_name" content="Wingmate">
-  <meta property="og:image" content="https://drvanus.github.io/wingmate-site/app-icon.png">
-  <meta property="og:image:width" content="1024">
-  <meta property="og:image:height" content="1024">
+  <meta property="og:image" content="https://drvanus.github.io/wingmate-site/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Wingmate — AI dating coaches that actually get it">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Wingmate — AI Dating Coaches That Actually Get It">
   <meta name="twitter:description" content="Four AI dating coaches with real perspectives. Screenshot analysis, platform-aware coaching, and personalized openers.">
-  <meta name="twitter:image" content="https://drvanus.github.io/wingmate-site/app-icon.png">
+  <meta name="twitter:image" content="https://drvanus.github.io/wingmate-site/og-image.png">
   <meta name="twitter:image:alt" content="Wingmate — AI dating coaches that actually get it">
 
   <link rel="icon" type="image/png" href="app-icon.png">
@@ -179,103 +179,90 @@
     }
     .mobile-links a { color: var(--fg); font-weight: 500; padding: 11px 12px; border-radius: 9px; }
     .mobile-links a:hover { background: rgba(255,255,255,0.05); }
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
       nav .links { display: none; }
       .mobile-menu { display: block; }
     }
 
-    /* ===== HERO ===== */
-    section.hero { padding: 92px 0 80px; position: relative; overflow: hidden; }
-    .hero-layout {
-      display: grid; grid-template-columns: 1.1fr 0.9fr;
-      gap: 52px; align-items: center;
+    /* ===== DEVICE FRAME (shared) ===== */
+    .device {
+      position: relative;
+      padding: 10px;
+      background: linear-gradient(160deg, #33373F, #15171C);
+      border-radius: 44px;
+      border: 1px solid var(--line-strong);
+      box-shadow:
+        0 34px 80px rgba(0,0,0,0.55),
+        0 0 0 1.5px rgba(0,0,0,0.6),
+        inset 0 0 0 1px rgba(255,255,255,0.06);
     }
-    @media (max-width: 900px) {
-      .hero-layout { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .device .screen {
+      position: relative; overflow: hidden;
+      border-radius: 34px; aspect-ratio: 720 / 1564;
+      background: #16181D; display: block;
+    }
+    .device .screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ===== HERO ===== */
+    section.hero { padding: 84px 0 78px; position: relative; overflow: hidden; }
+    .hero-layout {
+      display: grid; grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px; align-items: center;
+    }
+    @media (max-width: 960px) {
+      .hero-layout { grid-template-columns: 1fr; gap: 46px; text-align: center; }
     }
     .hero-text h1 {
       font-size: clamp(2.4rem, 5.6vw, 4rem); font-weight: 700;
       line-height: 1.06; margin-bottom: 20px;
     }
-    .hero-text .lede { font-size: 1.14rem; color: var(--muted); max-width: 520px; margin-bottom: 32px; }
-    @media (max-width: 900px) { .hero-text .lede { margin-left: auto; margin-right: auto; } }
-    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
-    @media (max-width: 900px) { .hero-cta { justify-content: center; } }
+    .hero-text .lede { font-size: 1.14rem; color: var(--muted); max-width: 520px; margin-bottom: 30px; }
+    @media (max-width: 960px) { .hero-text .lede { margin-left: auto; margin-right: auto; } }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+    @media (max-width: 960px) { .hero-cta { justify-content: center; } }
+    .hero-trust {
+      display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+      color: var(--faint); font-size: 0.86rem;
+    }
+    @media (max-width: 960px) { .hero-trust { justify-content: center; } }
+    .hero-trust .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--faint); }
+    .hero-trust b { color: var(--muted); font-weight: 600; }
 
-    .hero-art { display: flex; justify-content: center; position: relative; }
-    .hero-art .device {
-      width: 100%; max-width: 274px; padding: 11px;
-      background: linear-gradient(160deg, #2A2E38, #1A1D23);
-      border-radius: 42px; border: 1px solid var(--line-strong);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 60px var(--amber-glow);
-    }
-    .hero-art .device-inner {
-      border-radius: 32px; overflow: hidden;
-      background: var(--bg); aspect-ratio: 9 / 19.5;
-      display: flex; flex-direction: column;
-    }
+    .hero-art { position: relative; display: flex; justify-content: center; }
+    .hero-art .carousel-column { display: flex; flex-direction: column; align-items: center; width: 100%; }
+    .hero-art .device { width: 100%; max-width: 296px; }
     .hero-art::after {
-      content: ''; position: absolute; inset: -20px;
-      background: radial-gradient(ellipse at center, var(--amber-glow), transparent 68%);
+      content: ''; position: absolute; inset: -28px -10px;
+      background: radial-gradient(ellipse at center, var(--amber-glow-strong), transparent 66%);
       pointer-events: none; z-index: -1;
     }
 
-    /* Chat mockup inside device frame */
-    .chat-mock { flex: 1; display: flex; flex-direction: column; padding: 0; }
-    .chat-header {
-      padding: 38px 16px 12px;
-      background: linear-gradient(180deg, rgba(232,168,56,0.12), transparent);
-      border-bottom: 1px solid var(--line);
-      display: flex; align-items: center; gap: 10px;
+    /* Hero carousel — crossfades real app screenshots inside the phone frame. */
+    .carousel { position: relative; }
+    .carousel .screen img,
+    .carousel img {
+      position: absolute; inset: 0;
+      opacity: 0; transition: opacity 1s ease; will-change: opacity;
     }
-    .chat-header .avatar {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--amber), var(--amber-deep));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.85rem; font-weight: 700; color: #1A1D23;
+    .carousel img.active { opacity: 1; }
+    .carousel-caption {
+      margin-top: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em;
+      color: var(--muted); min-height: 1.2em; text-align: center;
+      transition: opacity .35s ease;
     }
-    .chat-header .name { font-weight: 600; font-size: 0.82rem; }
-    .chat-header .subtitle { font-size: 0.62rem; color: var(--faint); }
-    .chat-body { flex: 1; padding: 12px 12px 6px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
-    .msg {
-      max-width: 82%; padding: 9px 12px; border-radius: 14px;
-      font-size: 0.62rem; line-height: 1.45; animation: msgIn .5s ease both;
+    .carousel-caption span { color: var(--amber); }
+    .carousel-dots { display: flex; justify-content: center; gap: 9px; margin-top: 14px; }
+    .carousel-dots button {
+      width: 8px; height: 8px; padding: 0; border: 0; cursor: pointer;
+      border-radius: 999px; background: rgba(232,168,56,0.30);
+      transition: width .3s ease, background .3s ease, box-shadow .3s ease;
     }
-    .msg.user {
-      align-self: flex-end;
-      background: linear-gradient(135deg, var(--amber), var(--amber-deep));
-      color: #1A1D23; border-bottom-right-radius: 4px;
+    .carousel-dots button:hover { background: rgba(232,168,56,0.55); }
+    .carousel-dots button.active {
+      width: 24px; background: var(--amber);
+      box-shadow: 0 0 12px var(--amber-glow-strong);
     }
-    .msg.coach {
-      align-self: flex-start;
-      background: var(--surface); color: var(--fg);
-      border-bottom-left-radius: 4px;
-    }
-    @keyframes msgIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: none; }
-    }
-    .msg:nth-child(1) { animation-delay: .1s; }
-    .msg:nth-child(2) { animation-delay: .6s; }
-    .msg:nth-child(3) { animation-delay: 1.2s; }
-    .msg:nth-child(4) { animation-delay: 1.8s; }
-    .msg:nth-child(5) { animation-delay: 2.4s; }
-    .chat-input {
-      padding: 8px 12px 14px; display: flex; align-items: center; gap: 8px;
-      border-top: 1px solid var(--line);
-    }
-    .chat-input .field {
-      flex: 1; height: 30px; border-radius: 15px;
-      background: var(--surface); border: 1px solid var(--line);
-      display: flex; align-items: center; padding: 0 10px;
-      font-size: 0.58rem; color: var(--faint);
-    }
-    .chat-input .send {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--amber), var(--amber-deep));
-      display: flex; align-items: center; justify-content: center;
-    }
-    .chat-input .send svg { width: 14px; height: 14px; }
+    .carousel-dots button:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
 
     /* ===== SECTION SCAFFOLD ===== */
     section.block { padding: 88px 0; position: relative; }
@@ -311,6 +298,29 @@
     .feature-card .ic svg { width: 25px; height: 25px; }
     .feature-card h3 { font-size: 1.18rem; font-weight: 600; margin-bottom: 9px; }
     .feature-card p { color: var(--muted); font-size: 0.96rem; }
+
+    /* ===== SCREENS SHOWCASE ===== */
+    .screens-grid {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 34px 30px;
+    }
+    .screen-card { flex: 0 1 216px; max-width: 216px; text-align: center; }
+    .screen-card .device {
+      transition: transform .25s ease, box-shadow .25s ease;
+      will-change: transform;
+    }
+    .screen-card:hover .device {
+      transform: translateY(-8px);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1.5px rgba(0,0,0,0.6), 0 0 46px var(--amber-glow);
+    }
+    .screen-kind {
+      font-size: 0.64rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--amber); margin: 20px 0 4px;
+    }
+    .screen-name { font-size: 1.02rem; font-weight: 600; color: var(--fg); }
+    @media (max-width: 480px) {
+      .screen-card { flex-basis: 240px; max-width: 240px; }
+    }
 
     /* ===== COACHES ===== */
     .coaches-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -423,13 +433,14 @@
     footer .f-bottom { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 24px; color: var(--faint); font-size: 0.82rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
     /* ===== ACCESSIBILITY ===== */
-    a:focus-visible, summary:focus-visible, .btn:focus-visible {
+    a:focus-visible, summary:focus-visible, .btn:focus-visible, button:focus-visible {
       outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 8px;
     }
 
     /* ===== SCROLL REVEAL ===== */
     .js-reveal .section-head,
     .js-reveal .feature-card,
+    .js-reveal .screen-card,
     .js-reveal .coach-card,
     .js-reveal .step,
     .js-reveal .cta .container {
@@ -438,6 +449,10 @@
     }
     .js-reveal .is-in { opacity: 1 !important; transform: none !important; }
     .js-reveal .features-grid > *:nth-child(2n) { transition-delay: .07s; }
+    .js-reveal .screens-grid > *:nth-child(2) { transition-delay: .06s; }
+    .js-reveal .screens-grid > *:nth-child(3) { transition-delay: .12s; }
+    .js-reveal .screens-grid > *:nth-child(4) { transition-delay: .18s; }
+    .js-reveal .screens-grid > *:nth-child(5) { transition-delay: .24s; }
     .js-reveal .coaches-grid > *:nth-child(2) { transition-delay: .06s; }
     .js-reveal .coaches-grid > *:nth-child(3) { transition-delay: .12s; }
     .js-reveal .coaches-grid > *:nth-child(4) { transition-delay: .18s; }
@@ -447,7 +462,8 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-      .feature-card:hover, .coach-card:hover, .step:hover, .btn:hover { transform: none !important; }
+      .feature-card:hover, .coach-card:hover, .step:hover, .btn:hover, .screen-card:hover .device { transform: none !important; }
+      .carousel img { transition: none; }
     }
   </style>
   <script>
@@ -472,15 +488,16 @@
       </a>
       <div class="links">
         <a href="#features">Features</a>
+        <a href="#screens">Screens</a>
         <a href="#coaches">Coaches</a>
         <a href="#how">How it works</a>
-        <a href="#platforms">Platforms</a>
         <a href="#download" class="btn btn-ghost">Get Wingmate</a>
       </div>
       <details class="mobile-menu">
         <summary aria-label="Open menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></summary>
         <div class="mobile-links">
           <a href="#features">Features</a>
+          <a href="#screens">Screens</a>
           <a href="#coaches">Coaches</a>
           <a href="#how">How it works</a>
           <a href="#platforms">Platforms</a>
@@ -502,33 +519,29 @@
           <p class="lede">Four coaches, four perspectives. Screenshot analysis, platform-aware advice for Tinder, Hinge, and Bumble, and a shared memory that knows your story.</p>
           <div class="hero-cta">
             <a href="#download" class="btn btn-primary"><span>Get started</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="#coaches" class="btn btn-ghost"><span>Meet the coaches</span></a>
+            <a href="#screens" class="btn btn-ghost"><span>See it in action</span></a>
+          </div>
+          <div class="hero-trust">
+            <span><b>4</b> distinct coaches</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span><b>Shared</b> memory</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span>Built for <b>iPhone</b></span>
           </div>
         </div>
         <div class="hero-art">
-          <div class="device">
-            <div class="device-inner">
-              <div class="chat-mock">
-                <div class="chat-header">
-                  <div class="avatar">M</div>
-                  <div>
-                    <div class="name">Marcus</div>
-                    <div class="subtitle">Confident & direct</div>
-                  </div>
-                </div>
-                <div class="chat-body">
-                  <div class="msg user">She liked my photo but hasn't responded to my opener on Hinge. It's been a day.</div>
-                  <div class="msg coach">A day is nothing. Don't double-text yet. Her like already told you she's interested — now you just need a better hook.</div>
-                  <div class="msg coach">Look at what prompt she answered on her profile. Reference something specific from it. Generic "hey" openers die on Hinge.</div>
-                  <div class="msg user">Her prompt says she's looking for someone who can make her laugh at a funeral.</div>
-                  <div class="msg coach">Perfect. Try: "I once got shushed for laughing at my own grandma's eulogy — she would've wanted it that way. When's our first funeral?"</div>
-                </div>
-                <div class="chat-input">
-                  <div class="field">Ask Marcus anything...</div>
-                  <div class="send"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1D23" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                </div>
+          <div class="carousel-column">
+            <div class="device">
+              <div class="screen carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Wingmate app screenshots">
+                <img class="active" fetchpriority="high" src="assets/screens/screen-chat.jpg" alt="Wingmate chat screen — coach Marcus greets you with quick actions like 'How should I open?' and 'Read this screenshot for me'." data-caption="Chat with your coach">
+                <img src="assets/screens/screen-coaches.jpg" alt="Coach picker — choose between Marcus, Jade, Eli, and Ava, each with a distinct coaching style." data-caption="Four coaches, four styles">
+                <img src="assets/screens/screen-openers.jpg" alt="Generate Opener — pick a platform and message type, describe her profile, and get a tailored opener." data-caption="Personalized openers">
+                <img src="assets/screens/screen-connections.jpg" alt="Connections screen — add someone you're talking to for personalized coaching on each conversation." data-caption="Track every connection">
+                <img src="assets/screens/screen-settings.jpg" alt="Settings — switch active coach, tune coaching directness, and choose appearance." data-caption="Tune your experience">
               </div>
             </div>
+            <div class="carousel-caption" id="heroCaption" aria-live="polite"><span>Chat with your coach</span></div>
+            <div class="carousel-dots" id="heroDots" role="tablist" aria-label="Choose a screenshot"></div>
           </div>
         </div>
       </div>
@@ -585,8 +598,62 @@
     </div>
   </section>
 
+  <!-- ===== SCREENS SHOWCASE ===== -->
+  <section class="block panel" id="screens">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">A look inside</span>
+        <h2>Real coaching, <span class="grad-text">real screens.</span></h2>
+        <p>No mockups. Every screen below is captured straight from the Wingmate app — from your first coach pick to openers tailored for the moment.</p>
+      </div>
+      <div class="screens-grid">
+
+        <div class="screen-card">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-chat.jpg" alt="Wingmate chat screen with coach Marcus and quick-action prompts" loading="lazy"></div>
+          </div>
+          <div class="screen-kind">Coach Chat</div>
+          <div class="screen-name">Advice on tap</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-coaches.jpg" alt="Coach picker showing Marcus, Jade, Eli, and Ava" loading="lazy"></div>
+          </div>
+          <div class="screen-kind">Coach Picker</div>
+          <div class="screen-name">Pick your voice</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-openers.jpg" alt="Generate Opener screen with platform and message-type selectors" loading="lazy"></div>
+          </div>
+          <div class="screen-kind">Openers</div>
+          <div class="screen-name">Crafted to fit</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-connections.jpg" alt="Connections screen for tracking people you're talking to" loading="lazy"></div>
+          </div>
+          <div class="screen-kind">Connections</div>
+          <div class="screen-name">Every match, tracked</div>
+        </div>
+
+        <div class="screen-card">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-settings.jpg" alt="Settings screen with coach selection and coaching directness slider" loading="lazy"></div>
+          </div>
+          <div class="screen-kind">Settings</div>
+          <div class="screen-name">Tuned to you</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ===== COACHES ===== -->
-  <section class="block panel" id="coaches">
+  <section class="block" id="coaches">
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow">The team</span>
@@ -628,7 +695,7 @@
   </section>
 
   <!-- ===== HOW IT WORKS ===== -->
-  <section class="block" id="how">
+  <section class="block panel" id="how">
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow">How it works</span>
@@ -656,7 +723,7 @@
   </section>
 
   <!-- ===== PLATFORMS ===== -->
-  <section class="block panel" id="platforms">
+  <section class="block" id="platforms">
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow">Works where you date</span>
@@ -708,6 +775,7 @@
         <div class="f-col">
           <h3>Product</h3>
           <a href="#features">Features</a>
+          <a href="#screens">Screens</a>
           <a href="#coaches">Coaches</a>
           <a href="#how">How it works</a>
           <a href="#platforms">Platforms</a>
@@ -727,11 +795,12 @@
     </div>
   </footer>
 
+  <!-- ===== SCROLL REVEAL ===== -->
   <script>
     (function () {
       if (!document.documentElement.classList.contains('js-reveal')) return;
       var els = document.querySelectorAll(
-        '.section-head, .feature-card, .coach-card, .step, .cta .container'
+        '.section-head, .feature-card, .screen-card, .coach-card, .step, .cta .container'
       );
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
@@ -739,6 +808,67 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
       els.forEach(function (e) { io.observe(e); });
+    })();
+  </script>
+
+  <!-- ===== HERO CAROUSEL ===== -->
+  <script>
+    (function () {
+      var carousel = document.getElementById('heroCarousel');
+      var dotsWrap = document.getElementById('heroDots');
+      var caption = document.getElementById('heroCaption');
+      if (!carousel || !dotsWrap) return;
+
+      var slides = Array.prototype.slice.call(carousel.querySelectorAll('img'));
+      if (slides.length < 2) return;
+
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var DELAY = 3800;
+      var i = 0, timer = null;
+
+      var dots = slides.map(function (slide, idx) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', (slide.getAttribute('data-caption') || ('Screenshot ' + (idx + 1))));
+        b.addEventListener('click', function () { show(idx); restart(); });
+        dotsWrap.appendChild(b);
+        return b;
+      });
+
+      function show(n) {
+        slides[i].classList.remove('active');
+        dots[i].classList.remove('active');
+        dots[i].setAttribute('aria-selected', 'false');
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add('active');
+        dots[i].classList.add('active');
+        dots[i].setAttribute('aria-selected', 'true');
+        if (caption) {
+          var text = slides[i].getAttribute('data-caption') || '';
+          caption.style.opacity = '0';
+          setTimeout(function () {
+            caption.innerHTML = '<span>' + text + '</span>';
+            caption.style.opacity = '1';
+          }, 180);
+        }
+      }
+
+      function next() { show(i + 1); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function restart() { stop(); if (!reduce) timer = setInterval(next, DELAY); }
+
+      dots[0].classList.add('active');
+      dots[0].setAttribute('aria-selected', 'true');
+
+      if (!reduce) {
+        restart();
+        carousel.addEventListener('mouseenter', stop);
+        carousel.addEventListener('mouseleave', restart);
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) stop(); else restart();
+        });
+      }
     })();
   </script>
 </body>
