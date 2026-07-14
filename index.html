@@ -303,10 +303,12 @@
 
     /* ===== SCREENS SHOWCASE ===== */
     .screens-grid {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 36px 28px;
+      display: grid; grid-template-columns: repeat(4, minmax(0, 218px));
+      justify-content: center; gap: 40px 30px;
     }
-    .screen-card { flex: 0 1 210px; max-width: 210px; text-align: center; }
+    @media (max-width: 900px) { .screens-grid { grid-template-columns: repeat(2, minmax(0, 240px)); } }
+    @media (max-width: 480px) { .screens-grid { grid-template-columns: minmax(0, 280px); } }
+    .screen-card { text-align: center; }
     .screen-card .device {
       transition: transform .28s ease, box-shadow .28s ease;
       will-change: transform;
@@ -319,10 +321,29 @@
       font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--amber); margin: 22px 0 5px;
     }
+    .screen-card[data-accent] .screen-kind { color: var(--accent); }
     .screen-name { font-size: 1rem; font-weight: 600; color: var(--fg-strong); }
-    @media (max-width: 480px) {
-      .screen-card { flex-basis: 240px; max-width: 240px; }
+    .screens-subhead {
+      text-align: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--faint); margin: 6px 0 30px;
     }
+    .screens-grid + .screens-subhead { margin-top: 56px; }
+
+    /* ===== DARK + LIGHT SHOWCASE ===== */
+    .theme-showcase { display: grid; grid-template-columns: repeat(4, minmax(0, 218px)); justify-content: center; gap: 40px 30px; }
+    @media (max-width: 900px) { .theme-showcase { grid-template-columns: repeat(2, minmax(0, 240px)); } }
+    @media (max-width: 480px) { .theme-showcase { grid-template-columns: minmax(0, 280px); } }
+    .theme-card { text-align: center; }
+    .theme-card .device { transition: transform .28s ease; }
+    .theme-card:hover .device { transform: translateY(-8px); }
+    .theme-badge {
+      display: inline-flex; align-items: center; gap: 7px; margin-top: 20px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .theme-badge::before { content: ''; width: 9px; height: 9px; border-radius: 50%; }
+    .theme-card.dark .theme-badge::before { background: #14161c; border: 1px solid rgba(255,255,255,0.25); }
+    .theme-card.light .theme-badge::before { background: #f4ede0; border: 1px solid rgba(0,0,0,0.15); }
 
     /* ===== COACHES ===== */
     .coaches-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
@@ -403,14 +424,13 @@
     /* ===== PLATFORMS ===== */
     .platforms-strip { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
     .platform-chip {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 24px; background: var(--surface);
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 15px 30px; background: var(--surface);
       border: 1px solid var(--line); border-radius: 999px;
-      font-weight: 600; font-size: 0.94rem; color: var(--fg);
+      font-weight: 600; font-size: 1rem; letter-spacing: 0.01em; color: var(--fg);
       transition: transform .22s ease, border-color .22s, background .22s, box-shadow .22s;
     }
     .platform-chip:hover { transform: translateY(-3px); border-color: rgba(232,168,56,0.4); background: var(--card); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
-    .platform-chip svg { width: 20px; height: 20px; color: var(--amber); }
 
     /* ===== CTA ===== */
     .cta {
@@ -608,53 +628,52 @@
       <div class="section-head center">
         <span class="eyebrow">A look inside</span>
         <h2>Real coaching, <span class="grad-text">real screens.</span></h2>
-        <p>No mockups. Every screen below is captured straight from the Wingmate app — from your first coach pick to openers tailored for the moment.</p>
+        <p>No mockups. Every screen below is captured straight from the Wingmate app — all four coaches, each with their own voice, plus the tools that track every connection.</p>
       </div>
+
+      <div class="screens-subhead">Four coaches, four perspectives</div>
+      <div class="screens-grid">
+
+        <div class="screen-card" data-accent style="--accent: var(--marcus);">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-chat.jpg" alt="Marcus hands you two tap-to-copy replies and a Conversation Insights card reading interest as Warm" loading="lazy"></div>
+          </div>
+          <div class="screen-kind">Marcus · Direct</div>
+          <div class="screen-name">Ready-to-send replies</div>
+        </div>
+
+        <div class="screen-card" data-accent style="--accent: var(--jade);">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-jade.jpg" alt="Jade rewrites a flat opener and explains what a woman actually thinks reading it" loading="lazy"></div>
+          </div>
+          <div class="screen-kind">Jade · Her POV</div>
+          <div class="screen-name">What she really reads</div>
+        </div>
+
+        <div class="screen-card" data-accent style="--accent: var(--eli);">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-eli.jpg" alt="Eli riffs playful, witty openers off her bio and tells you not to double-text" loading="lazy"></div>
+          </div>
+          <div class="screen-kind">Eli · Playful</div>
+          <div class="screen-name">Witty, never try-hard</div>
+        </div>
+
+        <div class="screen-card" data-accent style="--accent: var(--ava);">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-analyze.jpg" alt="Ava reads a shared conversation screenshot and breaks down the signals point by point" loading="lazy"></div>
+          </div>
+          <div class="screen-kind">Ava · Analytical</div>
+          <div class="screen-name">Reads your screenshots</div>
+        </div>
+
+      </div>
+
+      <div class="screens-subhead">Everything, organized</div>
       <div class="screens-grid">
 
         <div class="screen-card">
           <div class="device">
-            <div class="screen"><img src="assets/screens/screen-chat.jpg" alt="Two tap-to-copy reply suggestions and a Conversation Insights card reading interest level as Warm" loading="lazy"></div>
-          </div>
-          <div class="screen-kind">Suggested Replies</div>
-          <div class="screen-name">Two lines, ready to send</div>
-        </div>
-
-        <div class="screen-card">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-analyze.jpg" alt="Coach Marcus reading a shared conversation screenshot and explaining what her messages signal" loading="lazy"></div>
-          </div>
-          <div class="screen-kind">Screenshot Analysis</div>
-          <div class="screen-name">Reads the signals</div>
-        </div>
-
-        <div class="screen-card">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-profile.jpg" alt="Coach Marcus turning a Hinge profile's bio prompts into a specific, tailored opener" loading="lazy"></div>
-          </div>
-          <div class="screen-kind">Profile → Opener</div>
-          <div class="screen-name">Built from her bio</div>
-        </div>
-
-        <div class="screen-card">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-coaches.jpg" alt="Coach picker showing Marcus, Jade, Eli, and Ava with quick-action prompts" loading="lazy"></div>
-          </div>
-          <div class="screen-kind">Coach Picker</div>
-          <div class="screen-name">Pick your voice</div>
-        </div>
-
-        <div class="screen-card">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-openers.jpg" alt="Opener vault with personalized openers organized by platform" loading="lazy"></div>
-          </div>
-          <div class="screen-kind">Openers</div>
-          <div class="screen-name">Your opener vault</div>
-        </div>
-
-        <div class="screen-card">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-connections.jpg" alt="Connections list tracking five people from matching to exclusive" loading="lazy"></div>
+            <div class="screen"><img src="assets/screens/screen-connections.jpg" alt="Connections list tracking five people from matching to exclusive, each with a photo" loading="lazy"></div>
           </div>
           <div class="screen-kind">Connections</div>
           <div class="screen-name">Every match, tracked</div>
@@ -670,18 +689,60 @@
 
         <div class="screen-card">
           <div class="device">
-            <div class="screen"><img src="assets/screens/screen-history.jpg" alt="Conversation history grouped by day, filterable by coach and connection" loading="lazy"></div>
+            <div class="screen"><img src="assets/screens/screen-openers.jpg" alt="Opener vault with personalized openers organized by platform" loading="lazy"></div>
           </div>
-          <div class="screen-kind">History</div>
-          <div class="screen-name">Every session, saved</div>
+          <div class="screen-kind">Opener Vault</div>
+          <div class="screen-name">Saved and ready</div>
         </div>
 
         <div class="screen-card">
           <div class="device">
-            <div class="screen"><img src="assets/screens/screen-settings.jpg" alt="Settings — coach selection, coaching tone, dating experience, and appearance" loading="lazy"></div>
+            <div class="screen"><img src="assets/screens/screen-settings.jpg" alt="Settings — switch between all four coaches, tune coaching tone, and set experience level" loading="lazy"></div>
           </div>
           <div class="screen-kind">Settings</div>
           <div class="screen-name">Tuned to you</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DARK + LIGHT ===== -->
+  <section class="block" id="themes">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Light or dark</span>
+        <h2>Looks right <span class="grad-text">either way.</span></h2>
+        <p>Wingmate is built for both. The same warm, premium design — whether you're a midnight-texter or a morning-coffee scroller.</p>
+      </div>
+      <div class="theme-showcase">
+
+        <div class="theme-card dark">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-chat.jpg" alt="Wingmate chat in dark mode" loading="lazy"></div>
+          </div>
+          <div class="theme-badge">Dark · Coach</div>
+        </div>
+
+        <div class="theme-card light">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-chat-light.jpg" alt="Wingmate chat in light mode" loading="lazy"></div>
+          </div>
+          <div class="theme-badge">Light · Coach</div>
+        </div>
+
+        <div class="theme-card dark">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-connections.jpg" alt="Connections list in dark mode" loading="lazy"></div>
+          </div>
+          <div class="theme-badge">Dark · Connections</div>
+        </div>
+
+        <div class="theme-card light">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-connections-light.jpg" alt="Connections list in light mode" loading="lazy"></div>
+          </div>
+          <div class="theme-badge">Light · Connections</div>
         </div>
 
       </div>
@@ -768,19 +829,15 @@
       </div>
       <div class="platforms-strip">
         <div class="platform-chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1 14.5l-4-4 1.4-1.4L11 13.7l5.6-5.6L18 9.5l-7 7z"/></svg>
           <span>Tinder</span>
         </div>
         <div class="platform-chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           <span>Hinge</span>
         </div>
         <div class="platform-chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3L4 14h5l-1 7 9-11h-5l1-7z"/></svg>
           <span>Bumble</span>
         </div>
         <div class="platform-chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
           <span>Texting</span>
         </div>
       </div>
