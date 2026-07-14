@@ -329,6 +329,39 @@
     }
     .screens-grid + .screens-subhead { margin-top: 56px; }
 
+    /* ===== ALTERNATING FEATURE ROWS ===== */
+    .feature-rows { display: flex; flex-direction: column; gap: 108px; margin-top: 12px; }
+    .feature-row { display: flex; align-items: center; gap: 72px; }
+    .feature-row:nth-child(even) { flex-direction: row-reverse; }
+    .fr-text { flex: 1 1 0; min-width: 0; }
+    .fr-art { flex: 0 0 300px; display: flex; justify-content: center; position: relative; }
+    .fr-art .device { width: 300px; }
+    .fr-art::after {
+      content: ''; position: absolute; inset: -30px;
+      background: radial-gradient(ellipse at center, var(--accent-glow, rgba(232,168,56,0.14)), transparent 66%);
+      z-index: -1; pointer-events: none;
+    }
+    .fr-eyebrow {
+      display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent, var(--amber));
+      padding: 6px 13px; border: 1px solid; border-color: color-mix(in srgb, var(--accent, var(--amber)) 32%, transparent);
+      border-radius: 999px; margin-bottom: 18px;
+    }
+    .fr-text h3 { font-size: clamp(1.55rem, 3vw, 2.15rem); font-weight: 700; line-height: 1.14; color: var(--fg-strong); margin-bottom: 16px; }
+    .fr-text > p { color: var(--muted); font-size: 1.06rem; line-height: 1.72; max-width: 46ch; }
+    .fr-points { list-style: none; margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .fr-points li { display: flex; align-items: flex-start; gap: 11px; color: var(--fg); font-size: 0.98rem; line-height: 1.5; }
+    .fr-points svg { flex: 0 0 18px; width: 18px; height: 18px; color: var(--accent, var(--amber)); margin-top: 2px; }
+    @media (max-width: 860px) {
+      .feature-rows { gap: 72px; }
+      .feature-row, .feature-row:nth-child(even) { flex-direction: column; text-align: center; gap: 36px; }
+      .fr-art { flex: 0 0 auto; }
+      .fr-art .device { width: 260px; }
+      .fr-text > p { margin-left: auto; margin-right: auto; }
+      .fr-points { max-width: 420px; margin-left: auto; margin-right: auto; }
+      .fr-points li { text-align: left; }
+    }
+
     /* ===== DARK + LIGHT SHOWCASE ===== */
     .theme-showcase { display: grid; grid-template-columns: repeat(4, minmax(0, 218px)); justify-content: center; gap: 40px 30px; }
     @media (max-width: 900px) { .theme-showcase { grid-template-columns: repeat(2, minmax(0, 240px)); } }
@@ -628,79 +661,99 @@
       <div class="section-head center">
         <span class="eyebrow">A look inside</span>
         <h2>Real coaching, <span class="grad-text">real screens.</span></h2>
-        <p>No mockups. Every screen below is captured straight from the Wingmate app — all four coaches, each with their own voice, plus the tools that track every connection.</p>
+        <p>No mockups — every screen is captured straight from the app. Meet all four coaches in action, then the tools that keep your dating life organized.</p>
       </div>
 
-      <div class="screens-subhead">Four coaches, four perspectives</div>
-      <div class="screens-grid">
+      <div class="feature-rows">
 
-        <div class="screen-card" data-accent style="--accent: var(--marcus);">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-chat.jpg" alt="Marcus hands you two tap-to-copy replies and a Conversation Insights card reading interest as Warm" loading="lazy"></div>
+        <!-- Marcus -->
+        <div class="feature-row" style="--accent: var(--marcus); --accent-glow: rgba(232,168,56,0.16);">
+          <div class="fr-text">
+            <span class="fr-eyebrow">Marcus · Confident &amp; Direct</span>
+            <h3>Two replies. Both ready to send.</h3>
+            <p>Marcus reads the whole thread and hands you tap-to-copy messages — not vague tips. Every line comes with the reasoning, so you learn the <em>why</em> while you send the <em>what</em>.</p>
+            <ul class="fr-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Copy-and-send suggestions in one tap</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>An interest-level read on every conversation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Cuts straight through the overthinking</li>
+            </ul>
           </div>
-          <div class="screen-kind">Marcus · Direct</div>
-          <div class="screen-name">Ready-to-send replies</div>
+          <div class="fr-art"><div class="device"><div class="screen"><img src="assets/screens/screen-chat.jpg" alt="Marcus hands you two tap-to-copy replies with a Warm interest-level read" loading="lazy"></div></div></div>
         </div>
 
-        <div class="screen-card" data-accent style="--accent: var(--jade);">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-jade.jpg" alt="Jade rewrites a flat opener and explains what a woman actually thinks reading it" loading="lazy"></div>
+        <!-- Jade -->
+        <div class="feature-row" style="--accent: var(--jade); --accent-glow: rgba(52,211,153,0.16);">
+          <div class="fr-text">
+            <span class="fr-eyebrow">Jade · The Female Perspective</span>
+            <h3>Hear it from the other side.</h3>
+            <p>Jade tells you what she'd actually think reading that message — why the compliment falls flat, and what lands instead. It's the honest second opinion your group chat can't give you.</p>
+            <ul class="fr-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>An honest read on how your message lands</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Rewrites that still sound like you</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Genuine interest, without trying too hard</li>
+            </ul>
           </div>
-          <div class="screen-kind">Jade · Her POV</div>
-          <div class="screen-name">What she really reads</div>
+          <div class="fr-art"><div class="device"><div class="screen"><img src="assets/screens/screen-jade.jpg" alt="Jade explains why a looks-first compliment falls flat and rewrites it" loading="lazy"></div></div></div>
         </div>
 
-        <div class="screen-card" data-accent style="--accent: var(--eli);">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-eli.jpg" alt="Eli riffs playful, witty openers off her bio and tells you not to double-text" loading="lazy"></div>
+        <!-- Eli -->
+        <div class="feature-row" style="--accent: var(--eli); --accent-glow: rgba(56,189,248,0.16);">
+          <div class="fr-text">
+            <span class="fr-eyebrow">Eli · Chill &amp; Funny</span>
+            <h3>Make her laugh first.</h3>
+            <p>Eli riffs witty openers straight off her bio and keeps the banter loose. And when she goes quiet, he'll talk you off the double-text ledge instead of feeding the spiral.</p>
+            <ul class="fr-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Playful openers that never feel cheesy</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Keeps the conversation fun and natural</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No more anxious double-texting</li>
+            </ul>
           </div>
-          <div class="screen-kind">Eli · Playful</div>
-          <div class="screen-name">Witty, never try-hard</div>
+          <div class="fr-art"><div class="device"><div class="screen"><img src="assets/screens/screen-eli.jpg" alt="Eli gives playful openers off her bio and advises against double-texting" loading="lazy"></div></div></div>
         </div>
 
-        <div class="screen-card" data-accent style="--accent: var(--ava);">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-analyze.jpg" alt="Ava reads a shared conversation screenshot and breaks down the signals point by point" loading="lazy"></div>
+        <!-- Ava -->
+        <div class="feature-row" style="--accent: var(--ava); --accent-glow: rgba(167,139,250,0.16);">
+          <div class="fr-text">
+            <span class="fr-eyebrow">Ava · Strategic &amp; Analytical</span>
+            <h3>Screenshot in. Strategy out.</h3>
+            <p>Drop a screenshot and Ava breaks down the signals point by point — response time, who's driving the thread, and the exact move that turns it into a date.</p>
+            <ul class="fr-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Reads the subtext, not just the words</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>An interest level backed by real signals</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>A calibrated next message, every time</li>
+            </ul>
           </div>
-          <div class="screen-kind">Ava · Analytical</div>
-          <div class="screen-name">Reads your screenshots</div>
+          <div class="fr-art"><div class="device"><div class="screen"><img src="assets/screens/screen-analyze.jpg" alt="Ava reads a shared conversation screenshot and breaks down the signals point by point" loading="lazy"></div></div></div>
         </div>
 
-      </div>
-
-      <div class="screens-subhead">Everything, organized</div>
-      <div class="screens-grid">
-
-        <div class="screen-card">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-connections.jpg" alt="Connections list tracking five people from matching to exclusive, each with a photo" loading="lazy"></div>
+        <!-- Connections -->
+        <div class="feature-row" style="--accent: var(--marcus); --accent-glow: rgba(232,168,56,0.14);">
+          <div class="fr-text">
+            <span class="fr-eyebrow">Connections</span>
+            <h3>Never lose track of who's who.</h3>
+            <p>From first match to exclusive, every person gets a profile — photo, stage, quick context, and private notes. Your coaches remember all of it, so the advice always fits the person.</p>
+            <ul class="fr-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>A stage tracker from matching to exclusive</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Quick context and private notes on each person</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Coaching tailored to every connection</li>
+            </ul>
           </div>
-          <div class="screen-kind">Connections</div>
-          <div class="screen-name">Every match, tracked</div>
+          <div class="fr-art"><div class="device"><div class="screen"><img src="assets/screens/screen-connections.jpg" alt="Connections list tracking five people from matching to exclusive, each with a photo" loading="lazy"></div></div></div>
         </div>
 
-        <div class="screen-card">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-detail.jpg" alt="Connection detail for Sofia — relationship stage tracker, quick context, and private notes" loading="lazy"></div>
+        <!-- Openers -->
+        <div class="feature-row" style="--accent: var(--eli); --accent-glow: rgba(56,189,248,0.14);">
+          <div class="fr-text">
+            <span class="fr-eyebrow">Opener Vault</span>
+            <h3>Your best lines, saved for later.</h3>
+            <p>Every opener you generate is filed by platform and by person, ready to reuse. Build a library of what actually works for you — no more staring at a blank message box.</p>
+            <ul class="fr-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Organized by Tinder, Hinge, and Bumble</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Personalized to her actual profile</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>One-tap copy the moment you match</li>
+            </ul>
           </div>
-          <div class="screen-kind">Connection Detail</div>
-          <div class="screen-name">Know where you stand</div>
-        </div>
-
-        <div class="screen-card">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-openers.jpg" alt="Opener vault with personalized openers organized by platform" loading="lazy"></div>
-          </div>
-          <div class="screen-kind">Opener Vault</div>
-          <div class="screen-name">Saved and ready</div>
-        </div>
-
-        <div class="screen-card">
-          <div class="device">
-            <div class="screen"><img src="assets/screens/screen-settings.jpg" alt="Settings — switch between all four coaches, tune coaching tone, and set experience level" loading="lazy"></div>
-          </div>
-          <div class="screen-kind">Settings</div>
-          <div class="screen-name">Tuned to you</div>
+          <div class="fr-art"><div class="device"><div class="screen"><img src="assets/screens/screen-openers.jpg" alt="Opener vault with personalized openers organized by platform" loading="lazy"></div></div></div>
         </div>
 
       </div>
