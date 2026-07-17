@@ -126,7 +126,9 @@
       background: linear-gradient(135deg, var(--amber-light) 10%, var(--amber) 90%);
       -webkit-background-clip: text; background-clip: text; color: transparent;
       -webkit-box-decoration-break: clone; box-decoration-break: clone;
-      padding-bottom: 0.12em;
+      /* Safari clips gradient-text glyphs to the padding box — 0.2em keeps
+         g/y/p descenders inside it even at line-height 1.18. */
+      padding-bottom: 0.2em;
     }
 
     /* ===== BUTTONS ===== */
@@ -614,12 +616,12 @@
           <div class="carousel-column">
             <div class="device">
               <div class="screen carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Wingmate app screenshots">
-                <img class="active" fetchpriority="high" src="assets/screens/screen-chat.jpg?v=3" alt="Wingmate chat — Marcus reads the Hinge thread with Emma and hands you a ready-to-send reply with a Warm interest-level read." data-caption="Tap-to-copy replies, not a chatbot">
-                <img src="assets/screens/screen-openers.jpg?v=3" alt="The opener vault — saved openers organized by platform, tagged First Message, Re-engage, and Personalized, each one tap-to-copy." data-caption="Your opener vault, always ready">
-                <img src="assets/screens/screen-analyze.jpg?v=3" alt="Drop a screenshot of the conversation and Ava breaks down the signals — who's driving the thread and what the reply gap really means." data-caption="Reads your screenshots">
-                <img src="assets/screens/screen-coaches.jpg?v=3" alt="Four coaches — Marcus, Jade, Eli, and Ava — each with a different perspective on your situation." data-caption="Four coaches, four perspectives">
-                <img src="assets/screens/screen-connections.jpg?v=3" alt="Connections — track everyone you're talking to, from matching to exclusive, with coaching for each." data-caption="Track every connection">
-                <img src="assets/screens/screen-settings.jpg?v=3" alt="Settings — switch active coach, adjust coaching tone between Gentle and Direct, and set dating experience level." data-caption="Tune your experience">
+                <img class="active" fetchpriority="high" src="assets/screens/screen-chat.jpg?v=4" alt="Wingmate chat — Marcus reads the Hinge thread with Emma and hands you a ready-to-send reply with a Warm interest-level read." data-caption="Tap-to-copy replies, not a chatbot">
+                <img src="assets/screens/screen-openers.jpg?v=4" alt="The opener vault — saved openers organized by platform, tagged First Message, Re-engage, and Personalized, each one tap-to-copy." data-caption="Your opener vault, always ready">
+                <img src="assets/screens/screen-analyze.jpg?v=4" alt="Drop a screenshot of the conversation and Ava breaks down the signals — who's driving the thread and what the reply gap really means." data-caption="Reads your screenshots">
+                <img src="assets/screens/screen-coaches.jpg?v=4" alt="Four coaches — Marcus, Jade, Eli, and Ava — each with a different perspective on your situation." data-caption="Four coaches, four perspectives">
+                <img src="assets/screens/screen-connections.jpg?v=4" alt="Connections — track everyone you're talking to, from matching to exclusive, with coaching for each." data-caption="Track every connection">
+                <img src="assets/screens/screen-settings.jpg?v=4" alt="Settings — switch active coach, adjust coaching tone between Gentle and Direct, and set dating experience level." data-caption="Tune your experience">
               </div>
             </div>
             <div class="carousel-caption" id="heroCaption" aria-live="polite"><span>Chat with your coach</span></div>
@@ -717,7 +719,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Cuts straight through the overthinking</li>
             </ul>
           </div>
-          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-midchat.jpg?v=3" data-dark="assets/screens/screen-midchat.jpg?v=3" data-light="assets/screens/screen-midchat-light.jpg?v=3" alt="Marcus mid-conversation, handing you a tap-to-copy reply with the reasoning behind it" loading="lazy"></div></div></div>
+          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-midchat.jpg?v=4" data-dark="assets/screens/screen-midchat.jpg?v=4" data-light="assets/screens/screen-midchat-light.jpg?v=4" alt="Marcus mid-conversation, handing you a tap-to-copy reply with the reasoning behind it" loading="lazy"></div></div></div>
         </div>
 
         <!-- Jade -->
@@ -732,7 +734,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Genuine interest, without trying too hard</li>
             </ul>
           </div>
-          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-jade.jpg?v=3" data-dark="assets/screens/screen-jade.jpg?v=3" data-light="assets/screens/screen-jade-light.jpg?v=3" alt="Jade explains why a looks-first compliment falls flat and rewrites it" loading="lazy"></div></div></div>
+          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-jade.jpg?v=4" data-dark="assets/screens/screen-jade.jpg?v=4" data-light="assets/screens/screen-jade-light.jpg?v=4" alt="Jade explains why a looks-first compliment falls flat and rewrites it" loading="lazy"></div></div></div>
         </div>
 
         <!-- Eli -->
@@ -747,7 +749,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No more anxious double-texting</li>
             </ul>
           </div>
-          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-eli.jpg?v=3" data-dark="assets/screens/screen-eli.jpg?v=3" data-light="assets/screens/screen-eli-light.jpg?v=3" alt="Eli gives playful openers off her bio and advises against double-texting" loading="lazy"></div></div></div>
+          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-eli.jpg?v=4" data-dark="assets/screens/screen-eli.jpg?v=4" data-light="assets/screens/screen-eli-light.jpg?v=4" alt="Eli gives playful openers off her bio and advises against double-texting" loading="lazy"></div></div></div>
         </div>
 
         <!-- Ava -->
@@ -762,7 +764,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>A calibrated next message, every time</li>
             </ul>
           </div>
-          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-ava.jpg?v=3" data-dark="assets/screens/screen-ava.jpg?v=3" data-light="assets/screens/screen-ava-light.jpg?v=3" alt="Ava analyzes a shared screenshot — interest level, next moves, and a calibrated line to send" loading="lazy"></div></div></div>
+          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-ava.jpg?v=4" data-dark="assets/screens/screen-ava.jpg?v=4" data-light="assets/screens/screen-ava-light.jpg?v=4" alt="Ava analyzes a shared screenshot — interest level, next moves, and a calibrated line to send" loading="lazy"></div></div></div>
         </div>
 
         <!-- Connections -->
@@ -777,7 +779,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Coaching tailored to every connection</li>
             </ul>
           </div>
-          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-detail-emma.jpg?v=3" data-dark="assets/screens/screen-detail-emma.jpg?v=3" data-light="assets/screens/screen-detail-emma-light.jpg?v=3" alt="Emma's connection profile — Hinge, photo gallery of her profile screenshots, Texting stage, quick context, and private notes" loading="lazy"></div></div></div>
+          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-detail-emma.jpg?v=4" data-dark="assets/screens/screen-detail-emma.jpg?v=4" data-light="assets/screens/screen-detail-emma-light.jpg?v=4" alt="Emma's connection profile — Hinge, photo gallery of her profile screenshots, Texting stage, quick context, and private notes" loading="lazy"></div></div></div>
         </div>
 
         <!-- Openers -->
@@ -792,7 +794,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>One-tap copy the moment you match</li>
             </ul>
           </div>
-          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-openers-bumble.jpg?v=3" data-dark="assets/screens/screen-openers-bumble.jpg?v=3" data-light="assets/screens/screen-openers-light.jpg?v=3" alt="Opener vault — saved lines for Hinge and Bumble, tagged First Message, Re-engage, and Like Message, each personalized to a connection" loading="lazy"></div></div></div>
+          <div class="fr-art"><div class="device"><div class="screen"><img class="shot-img" src="assets/screens/screen-openers-bumble.jpg?v=4" data-dark="assets/screens/screen-openers-bumble.jpg?v=4" data-light="assets/screens/screen-openers-light.jpg?v=4" alt="Opener vault — saved lines for Hinge and Bumble, tagged First Message, Re-engage, and Like Message, each personalized to a connection" loading="lazy"></div></div></div>
         </div>
 
       </div>
@@ -811,21 +813,21 @@
 
         <div class="theme-card light">
           <div class="device">
-            <div class="screen"><img src="assets/screens/screen-connections-light.jpg?v=3" alt="The Connections list — Olivia, Emma, Sophia, and Chloe with platform badges, stages from Matching to Exclusive, quick context, and coaching-session counts" loading="lazy"></div>
+            <div class="screen"><img src="assets/screens/screen-connections-light.jpg?v=4" alt="The Connections list — Olivia, Emma, Sophia, and Chloe with platform badges, stages from Matching to Exclusive, quick context, and coaching-session counts" loading="lazy"></div>
           </div>
           <div class="theme-badge">Every connection, one list</div>
         </div>
 
         <div class="theme-card dark">
           <div class="device">
-            <div class="screen"><img src="assets/screens/screen-detail.jpg?v=3" alt="A connection profile — photo gallery of her dating-profile screenshots, stage tracker, and quick context" loading="lazy"></div>
+            <div class="screen"><img src="assets/screens/screen-detail.jpg?v=4" alt="A connection profile — photo gallery of her dating-profile screenshots, stage tracker, and quick context" loading="lazy"></div>
           </div>
           <div class="theme-badge">Profile &amp; photo gallery</div>
         </div>
 
         <div class="theme-card dark">
           <div class="device">
-            <div class="screen"><img src="assets/screens/screen-detail-memory.jpg?v=3" alt="Coach memory and coaching sessions on a connection — private notes, what the coach remembers, and past sessions in one place" loading="lazy"></div>
+            <div class="screen"><img src="assets/screens/screen-detail-memory.jpg?v=4" alt="Coach memory and coaching sessions on a connection — private notes, what the coach remembers, and past sessions in one place" loading="lazy"></div>
           </div>
           <div class="theme-badge">Coach memory &amp; sessions</div>
         </div>
@@ -845,28 +847,28 @@
 
         <div class="theme-card dark">
           <div class="device">
-            <div class="screen"><img src="assets/screens/screen-history.jpg?v=3" alt="Conversation history across all four coaches in dark mode" loading="lazy"></div>
+            <div class="screen"><img src="assets/screens/screen-history.jpg?v=4" alt="Conversation history across all four coaches in dark mode" loading="lazy"></div>
           </div>
           <div class="theme-badge">Dark · Conversations</div>
         </div>
 
         <div class="theme-card dark">
           <div class="device">
-            <div class="screen"><img src="assets/screens/screen-date.jpg?v=3" alt="Coach home scoped to Sophia on Bumble in dark mode — quick actions like plan a date, read a screenshot, and what should I text back" loading="lazy"></div>
+            <div class="screen"><img src="assets/screens/screen-date.jpg?v=4" alt="Coach home scoped to Sophia on Bumble in dark mode — quick actions like plan a date, read a screenshot, and what should I text back" loading="lazy"></div>
           </div>
           <div class="theme-badge">Dark · Coach home</div>
         </div>
 
         <div class="theme-card light">
           <div class="device">
-            <div class="screen"><img src="assets/screens/screen-chat-light.jpg?v=3" alt="Coach chat with Marcus in light mode" loading="lazy"></div>
+            <div class="screen"><img src="assets/screens/screen-chat-light.jpg?v=4" alt="Coach chat with Marcus in light mode" loading="lazy"></div>
           </div>
           <div class="theme-badge">Light · Coach</div>
         </div>
 
         <div class="theme-card light">
           <div class="device">
-            <div class="screen"><img src="assets/screens/screen-settings-light.jpg?v=3" alt="Settings in light mode" loading="lazy"></div>
+            <div class="screen"><img src="assets/screens/screen-settings-light.jpg?v=4" alt="Settings in light mode" loading="lazy"></div>
           </div>
           <div class="theme-badge">Light · Settings</div>
         </div>
