@@ -367,6 +367,9 @@
     @media (max-width: 900px) { .theme-showcase { grid-template-columns: repeat(2, minmax(0, 240px)); } }
     @media (max-width: 480px) { .theme-showcase { grid-template-columns: minmax(0, 280px); } }
     .theme-card { text-align: center; }
+    .connections-showcase { display: grid; grid-template-columns: repeat(3, minmax(0, 262px)); justify-content: center; gap: 40px 34px; }
+    @media (max-width: 900px) { .connections-showcase { grid-template-columns: repeat(2, minmax(0, 240px)); } }
+    @media (max-width: 480px) { .connections-showcase { grid-template-columns: minmax(0, 280px); } }
     /* ===== LIGHT / DARK PREVIEW TOGGLE (screens showcase) ===== */
     .theme-toggle { display: inline-flex; position: relative; padding: 4px; margin: 6px auto 10px; background: var(--card); border: 1px solid var(--line-strong); border-radius: 999px; -webkit-tap-highlight-color: transparent; }
     .theme-toggle button { flex: 1 0 auto; min-width: 104px; appearance: none; -webkit-appearance: none; border: 0; background: transparent; cursor: pointer; font: inherit; font-weight: 600; font-size: 0.88rem; color: var(--muted); padding: 9px 18px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; position: relative; z-index: 1; transition: color .25s ease; }
@@ -797,6 +800,40 @@
   </section>
 
   <!-- ===== DARK + LIGHT ===== -->
+  <section class="block" id="connections">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Connections</span>
+        <h2>Your dating life, <span class="grad-text">organized.</span></h2>
+        <p>Every person you're talking to gets a living profile — platform, stage, her dating-profile screenshots, your private notes, and what your coach has learned. Tap "Get coaching" and the advice already knows the whole story.</p>
+      </div>
+      <div class="connections-showcase">
+
+        <div class="theme-card dark">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-connections.jpg?v=3" alt="The Connections list — Olivia, Emma, Sophia, and Chloe with platform badges, stages from Matching to Exclusive, quick context, and coaching-session counts" loading="lazy"></div>
+          </div>
+          <div class="theme-badge">Every connection, one list</div>
+        </div>
+
+        <div class="theme-card dark">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-detail.jpg?v=3" alt="A connection profile — photo gallery of her dating-profile screenshots, stage tracker, and quick context" loading="lazy"></div>
+          </div>
+          <div class="theme-badge">Profile &amp; photo gallery</div>
+        </div>
+
+        <div class="theme-card dark">
+          <div class="device">
+            <div class="screen"><img src="assets/screens/screen-detail-memory.jpg?v=3" alt="Coach memory and coaching sessions on a connection — private notes, what the coach remembers, and past sessions in one place" loading="lazy"></div>
+          </div>
+          <div class="theme-badge">Coach memory &amp; sessions</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="themes">
     <div class="container">
       <div class="section-head center">
